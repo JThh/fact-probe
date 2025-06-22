@@ -1,0 +1,265 @@
+Sentence: Le is a Vietnamese-American computer scientist and entrepreneur.
+  Fact: Le is a Vietnamese-American. 
+  Contributing Words: ['Le', 'is', 'a', 'Vietnamese', 'American']
+  Token Indices: [0, 1, 2, 3, 5]
+  Fact: Le is a computer scientist. 
+  Contributing Words: ['computer', 'scientist']
+  Token Indices: [6, 7]
+  Fact: Le is an entrepreneur.
+  Contributing Words: ['entrepreneur']
+  Token Indices: [9]
+
+Sentence: He is best known for co-founding the Google subsidiary DeepMind.
+  Fact: He is best known for co-founding DeepMind. 
+  Contributing Words: ['He', 'is', 'best', 'known', 'for', 'co', 'founding', 'DeepMind']
+  Token Indices: [0, 1, 2, 3, 4, 5, 7, 11]
+  Fact: DeepMind is a Google subsidiary.
+  Contributing Words: ['Google', 'subsidiary']
+  Token Indices: [9, 10]
+
+Sentence: Le is also a researcher and inventor in the field of artificial intelligence and machine learning.
+  Fact: Le is a researcher. 
+  Contributing Words: ['Le', 'is', 'a', 'researcher']
+  Token Indices: [0, 1, 3, 4]
+  Fact: Le is an inventor. 
+  Contributing Words: ['inventor']
+  Token Indices: [6]
+  Fact: Le is in the field of artificial intelligence. 
+  Contributing Words: ['in', 'the', 'field', 'of', 'artificial', 'intelligence']
+  Token Indices: [7, 8, 9, 10, 11, 12]
+  Fact: Le is in the field of machine learning.
+  Contributing Words: ['machine', 'learning']
+  Token Indices: [14, 15]
+
+Sentence: He was born in 1964 in Vietnam and immigrated to the United States in the 1970s.
+  Fact: He was born in 1964. 
+  Contributing Words: ['He', 'was', 'born', 'in', '1964']
+  Token Indices: [0, 1, 2, 3, 4]
+  Fact: He was born in Vietnam. 
+  Contributing Words: ['in', 'Vietnam']
+  Token Indices: [5, 6]
+  Fact: He immigrated to the United States. 
+  Contributing Words: ['immigrated', 'to', 'the', 'United', 'States']
+  Token Indices: [8, 9, 10, 11, 12]
+  Fact: He immigrated to the United States in the 1970s.
+  Contributing Words: ['in', 'the', '1970s']
+  Token Indices: [13, 14, 15]
+
+Sentence: Le received his undergraduate degree from the University of Washington and his graduate degree from Carnegie Mellon University.
+  Fact: Le received his undergraduate degree from the University of Washington. 
+  Contributing Words: ['Le', 'received', 'his', 'undergraduate', 'degree', 'from', 'the', 'University', 'of', 'Washington']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  Fact: Le received his graduate degree from Carnegie Mellon University.
+  Contributing Words: ['his', 'graduate', 'degree', 'from', 'Carnegie', 'Mellon', 'University']
+  Token Indices: [11, 12, 13, 14, 15, 16, 17]
+
+Sentence: He is a member of the National Academy of Engineering and has received numerous awards and honors for his work, including the MacArthur Fellowship.
+  Fact: He is a member of the National Academy of Engineering. 
+  Contributing Words: ['He', 'is', 'a', 'member', 'of', 'the', 'National', 'Academy', 'of', 'Engineering']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  Fact: He has received numerous awards and honors for his work. 
+  Contributing Words: ['and', 'has', 'received', 'numerous', 'awards', 'honors', 'for', 'his', 'work']
+  Token Indices: [10, 11, 12, 13, 14, 16, 17, 18, 19]
+  Fact: He has received the MacArthur Fellowship.
+  Contributing Words: ['including', 'the', 'MacArthur', 'Fellowship']
+  Token Indices: [21, 22, 23, 24]
+
+Sentence: Le's work has focused on developing algorithms for machine learning and natural language processing.
+  Fact: Le's work has focused on developing algorithms for machine learning. 
+  Contributing Words: ['work', 'has', 'focused', 'on', 'developing', 'algorithms', 'for', 'machine', 'learning']
+  Token Indices: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+  Fact: Le's work has focused on developing algorithms for natural language processing.
+  Contributing Words: ['natural', 'language', 'processing']
+  Token Indices: [12, 13, 14]
+
+Sentence: He is also known for his role in developing the AlphaGo artificial intelligence system, which defeated a human world champion in the game of Go.
+  Fact: He is known for his role in developing AlphaGo. 
+  Contributing Words: ['He', 'is', 'also', 'known', 'for', 'his', 'role', 'in', 'developing', 'the', 'AlphaGo']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  Fact: AlphaGo is an artificial intelligence system. 
+  Contributing Words: ['artificial', 'intelligence', 'system']
+  Token Indices: [11, 12, 13]
+  Fact: AlphaGo defeated a human world champion. 
+  Contributing Words: ['defeated', 'a', 'human', 'world', 'champion']
+  Token Indices: [16, 17, 18, 19, 20]
+  Fact: The game is Go.
+  Contributing Words: ['in', 'the', 'game', 'of', 'Go']
+  Token Indices: [21, 22, 23, 24, 25]
+
+Sentence: Le has also made significant contributions to the field of computer vision, including the development of the DeepDream algorithm.
+  Fact: Le has made significant contributions to the field of computer vision. 
+  Contributing Words: ['Le', 'has', 'also', 'made', 'significant', 'contributions', 'to', 'the', 'field', 'of', 'computer', 'vision']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  Fact: Le developed the DeepDream algorithm.
+  Contributing Words: ['the', 'development', 'of', 'the', 'DeepDream', 'algorithm']
+  Token Indices: [14, 15, 16, 17, 18, 19]
+
+Sentence: He is currently a director at DeepMind and has been recognized as one of the most influential people in the world by TIME magazine.
+  Fact: He is currently a director at DeepMind. 
+  Contributing Words: ['He', 'is', 'currently', 'a', 'director', 'at', 'DeepMind']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6]
+  Fact: He has been recognized as one of the most influential people in the world. 
+  Contributing Words: ['has', 'been', 'recognized', 'as', 'one', 'of', 'the', 'most', 'influential', 'people', 'in', 'the', 'world']
+  Token Indices: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+  Fact: TIME magazine recognized him.
+  Contributing Words: ['by', 'TIME', 'magazine']
+  Token Indices: [21, 22, 23]
+
+Sentence: Le has also received the ACM A.M. Turing Award, which is considered the "Nobel Prize of Computing".
+  Fact: Le has received the ACM A.M. Turing Award. 
+  Contributing Words: ['Le', 'has', 'also', 'received', 'the', 'ACM', 'A.M.', 'Turing', 'Award']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  Fact: The ACM A.M. Turing Award is considered the "Nobel Prize of Computing".
+  Contributing Words: ['which', 'is', 'considered', 'the', 'Nobel', 'Prize', 'of', 'Computing']
+  Token Indices: [10, 11, 12, 13, 15, 16, 17, 18]
+
+Sentence: What does Quoc V. Le's work focus on?
+  Fact: Quoc V. Le's work focuses on something.  (Note: The sentence is a question and does not provide specific information about what Quoc V. Le's work focuses on, so only a general fact can be derived.)
+  Contributing Words: ['Quoc', 'V.', 'work', 'focus', 'on']
+  Token Indices: [2, 3, 6, 7, 8]
+
+Sentence: Quoc V. Le's work focuses on developing algorithms for machine learning and natural language processing.
+  Fact: Quoc V. Le's work focuses on developing algorithms. 
+  Contributing Words: ['Quoc', 'V.', 'work', 'focuses', 'on', 'developing', 'algorithms']
+  Token Indices: [0, 1, 4, 5, 6, 7, 8]
+  Fact: Quoc V. Le's work focuses on machine learning. 
+  Contributing Words: ['machine', 'learning']
+  Token Indices: [10, 11]
+  Fact: Quoc V. Le's work focuses on natural language processing.
+  Contributing Words: ['natural', 'language', 'processing']
+  Token Indices: [13, 14, 15]
+
+Sentence: He is also known for his role in developing the AlphaGo artificial intelligence system, which defeated a human world champion in the game of Go.
+  Fact: He is known for his role in developing AlphaGo. 
+  Contributing Words: ['He', 'is', 'also', 'known', 'for', 'his', 'role', 'in', 'developing', 'the', 'AlphaGo']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  Fact: AlphaGo is an artificial intelligence system. 
+  Contributing Words: ['artificial', 'intelligence', 'system']
+  Token Indices: [11, 12, 13]
+  Fact: AlphaGo defeated a human world champion. 
+  Contributing Words: ['defeated', 'a', 'human', 'world', 'champion']
+  Token Indices: [16, 17, 18, 19, 20]
+  Fact: The game is Go.
+  Contributing Words: ['in', 'the', 'game', 'of', 'Go']
+  Token Indices: [21, 22, 23, 24, 25]
+
+Sentence: Additionally, he has made significant contributions to the field of computer vision, including the development of the DeepDream algorithm.
+  Fact: He has made significant contributions to the field of computer vision. 
+  Contributing Words: ['has', 'made', 'significant', 'contributions', 'to', 'the', 'field', 'of', 'computer', 'vision']
+  Token Indices: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+  Fact: He developed the DeepDream algorithm.
+  Contributing Words: ['the', 'development', 'of', 'the', 'DeepDream', 'algorithm']
+  Token Indices: [15, 16, 17, 18, 19, 20]
+
+Sentence: Is Quoc V. Le a researcher or an entrepreneur?
+  Fact: Quoc V. Le is a researcher. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'a', 'researcher']
+  Token Indices: [1, 2, 3, 4, 5]
+  Fact: Quoc V. Le is an entrepreneur.
+  Contributing Words: ['an', 'entrepreneur']
+  Token Indices: [7, 8]
+
+Sentence: Quoc V. Le is both a researcher and an entrepreneur.
+  Fact: Quoc V. Le is a researcher. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'is', 'a', 'researcher']
+  Token Indices: [0, 1, 2, 3, 5, 6]
+  Fact: Quoc V. Le is an entrepreneur.
+  Contributing Words: ['an', 'entrepreneur']
+  Token Indices: [8, 9]
+
+Sentence: He is a researcher in the field of artificial intelligence and machine learning, and has made significant contributions to the field through his work on developing algorithms and systems such as AlphaGo and DeepDream.
+  Fact: He is a researcher. 
+  Contributing Words: ['He', 'is', 'a', 'researcher']
+  Token Indices: [0, 1, 2, 3]
+  Fact: He is in the field of artificial intelligence. 
+  Contributing Words: ['in', 'the', 'field', 'of', 'artificial', 'intelligence']
+  Token Indices: [4, 5, 6, 7, 8, 9]
+  Fact: He is in the field of machine learning. 
+  Contributing Words: ['machine', 'learning']
+  Token Indices: [11, 12]
+  Fact: He has made significant contributions to the field. 
+  Contributing Words: ['has', 'made', 'significant', 'contributions', 'to', 'the', 'field']
+  Token Indices: [15, 16, 17, 18, 19, 20, 21]
+  Fact: He has worked on developing algorithms and systems. 
+  Contributing Words: ['and', 'work', 'on', 'developing', 'algorithms', 'systems']
+  Token Indices: [10, 24, 25, 26, 27, 29]
+  Fact: He has developed AlphaGo. 
+  Contributing Words: ['and', 'such', 'as', 'AlphaGo']
+  Token Indices: [14, 30, 31, 32]
+  Fact: He has developed DeepDream.
+  Contributing Words: ['and', 'DeepDream']
+  Token Indices: [28, 34]
+
+Sentence: He is also an entrepreneur, having co-founded the Google subsidiary DeepMind.
+  Fact: He is an entrepreneur. 
+  Contributing Words: ['He', 'is', 'also', 'an', 'entrepreneur']
+  Token Indices: [0, 1, 2, 3, 4]
+  Fact: He co-founded DeepMind. 
+  Contributing Words: ['co', 'founded', 'DeepMind']
+  Token Indices: [7, 9, 13]
+  Fact: DeepMind is a Google subsidiary.
+  Contributing Words: ['Google', 'subsidiary']
+  Token Indices: [11, 12]
+
+Sentence: When was Quoc V. Le born?
+  Fact: Quoc V. Le is a person. 
+  Contributing Words: ['Quoc', 'V.', 'Le']
+  Token Indices: [2, 3, 4]
+  Fact: The question is asking about the birth date of Quoc V. Le.
+  Contributing Words: ['When', 'was', 'born']
+  Token Indices: [0, 1, 5]
+
+Sentence: Quoc V. Le was born in 1964 in Vietnam.
+  Fact: Quoc V. Le was born in 1964. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'was', 'born', 'in', '1964']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6]
+  Fact: Quoc V. Le was born in Vietnam.
+  Contributing Words: ['in', 'Vietnam']
+  Token Indices: [7, 8]
+
+Sentence: Where did Quoc V. Le immigrate to?
+  Fact: Quoc V. Le immigrated. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'immigrate']
+  Token Indices: [2, 3, 4, 5]
+  Fact: Quoc V. Le immigrated to an unspecified location.
+  Contributing Words: ['to']
+  Token Indices: [6]
+
+Sentence: Quoc V. Le immigrated to the United States in the 1970s.
+  Fact: Quoc V. Le immigrated to the United States. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'immigrated', 'to', 'the', 'United', 'States']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7]
+  Fact: Quoc V. Le immigrated to the United States in the 1970s.
+  Contributing Words: ['in', 'the', '1970s']
+  Token Indices: [8, 9, 10]
+
+Sentence: What is Quoc V. Le's current role?
+  Fact: Quoc V. Le has a current role. 
+  Contributing Words: ['Quoc', 'V.', 'current', 'role']
+  Token Indices: [2, 3, 6, 7]
+  Fact: The current role is a question.
+  Contributing Words: ['What', 'is']
+  Token Indices: [0, 1]
+
+Sentence: Quoc V. Le is currently a director at DeepMind.
+  Fact: Quoc V. Le is currently a director. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'is', 'currently', 'a', 'director']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6]
+  Fact: Quoc V. Le is at DeepMind.
+  Contributing Words: ['at', 'DeepMind']
+  Token Indices: [7, 8]
+
+Sentence: What award has Quoc V. Le received?
+  Fact: Quoc V. Le has received an award.
+  Contributing Words: ['Quoc', 'V.', 'Le', 'received']
+  Token Indices: [3, 4, 5, 6]
+
+Sentence: Quoc V. Le has received the ACM A.M. Turing Award, which is considered the "Nobel Prize of Computing".
+  Fact: Quoc V. Le has received the ACM A.M. Turing Award. 
+  Contributing Words: ['Quoc', 'V.', 'Le', 'has', 'received', 'the', 'ACM', 'A.M.', 'Turing', 'Award']
+  Token Indices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  Fact: The ACM A.M. Turing Award is considered the "Nobel Prize of Computing".
+  Contributing Words: ['is', 'considered', 'the', 'Nobel', 'Prize', 'of', 'Computing']
+  Token Indices: [12, 13, 14, 16, 17, 18, 19]
+
+Paragraph Breaks: []
