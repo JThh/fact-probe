@@ -9,9 +9,13 @@ from sklearn.metrics import roc_auc_score
 def auroc(y_true, y_pred_proba):
     """Compute AUROC score."""
     try:
-        return roc_auc_score(y_true, y_pred_proba)
+        result = roc_auc_score(y_true, y_pred_proba)
+        # Handle edge cases where all labels are the same (returns NaN)
+        if np.isnan(result):
+            return 0.5
+        return result
     except ValueError:
-        # Handle edge cases where all labels are the same
+        # Handle other edge cases
         return 0.5
 
 def bootstrap_func(y_true, y_pred_proba, metric_func, n_bootstrap=1000, rn=42):

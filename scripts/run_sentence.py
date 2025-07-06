@@ -140,7 +140,6 @@ def generate_responses(ents, tokenizer, model, make_prompt, max_new_tokens, temp
     for ent in tqdm(ents, desc='Generating responses'):
         prompt = make_prompt(ent)
         if model is None:
-            global CLIENT
             if isinstance(prompt, str):
                 messages = [
                     {"role": "user", "content": prompt},

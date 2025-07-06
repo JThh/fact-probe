@@ -1,6 +1,6 @@
 # Simple Probes Detect Long-Form Hallucinations
 
-A research framework for detecting hallucinations in long-form LLM generations using lightweight probes on hidden states. This codebase implements methods from the paper "Simple Probes Detect Long-Form Hallucinations" and provides tools for training and evaluating hallucination detection probes.
+A framework for detecting hallucinations in long-form LLM generations using lightweight probes on hidden states. This codebase implements methods from the paper "Simple Probes Detect Long-Form Hallucinations" and provides tools for training and evaluating hallucination detection probes.
 
 ## Abstract
 
@@ -17,40 +17,73 @@ Large language models (LLMs) often mislead users with confident hallucinations. 
 
 ```
 long-form-fact-probe/
-├── long_fact_probes/          # Unified probe training framework
+├── long_fact_probes/          # Core probe training and evaluation framework
+│   ├── train.py              # Train hallucination detection probes
+│   ├── eval.py               # Evaluate trained probes
+│   ├── predict.py            # Generate predictions with probes
+│   ├── eval_utils.py         # Evaluation utilities
+│   └── README.md             # Detailed usage instructions
 ├── baselines/                # Baseline hallucination detection methods
-├── benchmarks/               # Evaluation frameworks (FActScore, longfact)
-├── scripts/                  # Experiment orchestration
-├── plotting/                 # Visualization and analysis scripts
-├── notebooks/               # Jupyter analysis notebooks
-├── misc/                    # Experimental components
+│   ├── graph-base-uncertainty/  # Graph-based uncertainty estimation
+│   └── long_hallucinations/     # Long-form hallucination detection baselines
+├── factuality_benchmarks/   # Evaluation frameworks
+│   ├── FActScore/           # Atomic fact evaluation framework
+│   └── long-form-factuality/ # Long-form factuality evaluation
+├── scripts/                 # Experiment orchestration scripts
+├── tests/                   # Unit and integration tests
 └── requirements.txt         # Python dependencies
 ```
 
 ## Quick Start
 
+### Installation
+
 ```bash
-# Setup environment
+# Clone the repository
 git clone https://github.com/your-org/long-form-fact-probe.git
 cd long-form-fact-probe
+
+# Setup environment
 conda create -n hallucination-probe python=3.9
 conda activate hallucination-probe
 pip install -r requirements.txt
+```
 
-# Configure cache directories
+### Configure Environment Variables
+
+```bash
+# Set cache directories for efficient model loading
 export PROBE_CACHE_DIR="./cache"
-export FACTSCORE_CACHE_DIR="./factscore_cache"
+export FACTSCORE_CACHE_DIR="./factscore_cache"  
 export HF_DATASETS_CACHE="./datasets_cache"
+export HF_HOME="./models_cache"
+```
+
+### Train and Evaluate Probes
+
+```bash
+# Navigate to probe training directory
+cd long_fact_probes
 
 # Train hallucination detection probes
-cd long_fact_probes
 python train.py --model llama3.1-8b --train_data_dir ./train_data/
 
-# Evaluate probes
+# Evaluate trained probes
 python eval.py --model llama3.1-8b --probes_dir ./results/
 
-# Generate predictions
+# Generate predictions on new data
 python predict.py --model llama3.1-8b --probe_file ./results/best_probe.pkl
+```
+
+### Run Tests
+
+```bash
+# Run the complete test suite
+python run_tests.py
+
+# Or run specific tests
+pytest tests/test_utils.py -v
+pytest tests/test_integration.py -v
 ```
 
 ## Supported Models
@@ -58,151 +91,86 @@ python predict.py --model llama3.1-8b --probe_file ./results/best_probe.pkl
 - **Llama 3.1**: 8B, 70B, 405B parameter variants
 - **Llama 3.2**: 3B parameter model  
 - **Gemma 2**: 9B parameter model
-- Extensible to any HuggingFace transformer
+- Extensible to any HuggingFace transformer model
 
-## Core Components
+## Probe Training Framework (`long_fact_probes/`)
 
-### Probe Training Framework (`long_fact_probes/`)
+The core framework for training and evaluating hallucination detection probes:
+
+- **`train.py`**: Main training script with cross-validation and model selection
+- **`eval.py`**: Comprehensive evaluation with bootstrap confidence intervals
+- **`predict.py`**: Inference script for generating predictions
+- **`eval_utils.py`**: Shared evaluation utilities and metrics
+
+Features:
 - Cross-validation with stratified k-fold and bootstrap statistics
 - Configurable layer grouping strategies
 - Multiple classifiers (Logistic Regression, XGBoost)
 - GPU acceleration and memory optimization
 
-### Baseline Methods (`baselines/`)
-- Multi-sample consistency approaches
-- Confidence-based hallucination scoring
-- Retrieval-augmented classification
-- Statistical baseline methods
 
-### Benchmarking (`benchmarks/`)
-- FActScore integration with atomic fact extraction
-- Long-form generation evaluation
-- Cross-model performance comparison
+## Usage Examples
 
-## Method Overview
+### Basic Probe Training
 
-Our approach leverages the key insight that LLM hidden states contain rich information about factuality that can be extracted using lightweight probes:
-
-1. **Single Forward Pass**: Extract hidden states during standard LLM generation
-2. **Lightweight Probe**: Train simple linear classifiers on hidden state representations
-3. **Efficient Inference**: Detect hallucinations without additional LLM samples
-4. **Cross-Model Transfer**: Probes generalize across different model architectures
-
-## Development
-
-### Adding New Models
-
-```python
-# Update MODEL_CONFIGS in long_fact_probes/train.py
-MODEL_CONFIGS['new-model'] = {
-    'name': 'NewModel-7B',
-    'hf_name': 'org/new-model-7b-instruct', 
-    'num_layers': 32
-}
-```
-
-### Custom Classifiers
-
-```python
-from sklearn.base import BaseEstimator, ClassifierMixin
-
-class CustomProbe(BaseEstimator, ClassifierMixin):
-    def fit(self, X, y):
-        # Implementation
-        return self
-        
-    def predict_proba(self, X):
-        # Return probabilities
-        return probabilities
-
-# Register in get_classifier()
-def get_classifier(classifier_name, **kwargs):
-    if classifier_name == 'custom_probe':
-        return CustomProbe(**kwargs)
-```
-
-## Performance Optimization
-
-### Memory Management
-```python
-# Gradient checkpointing for large models
-model.gradient_checkpointing_enable()
-
-# Streaming data processing
-def process_large_dataset(data_path, batch_size=32):
-    for batch in stream_batches(data_path, batch_size):
-        yield process_batch(batch)
-```
-
-### GPU Utilization
 ```bash
-# Multi-GPU training
-CUDA_VISIBLE_DEVICES=0,1,2,3 python train.py --model llama3.1-70b --use_gpu
+cd long_fact_probes
 
-# Enable caching
-export PROBE_CACHE_DIR="/fast/ssd/cache"
-export HF_HOME="/shared/models"
+# Train on Llama 3.1 8B with default settings
+python train.py \
+    --model llama3.1-8b \
+    --train_data_dir ./data/factscore_train/ \
+    --output_dir ./results/llama3.1-8b/ \
+    --num_folds 5
+
+# Evaluate the trained probes
+python eval.py \
+    --model llama3.1-8b \
+    --probes_dir ./results/llama3.1-8b/ \
+    --test_data_dir ./data/factscore_test/ \
+    --output_file ./results/evaluation_results.json
 ```
 
-## Experimental Features
+### Cross-Model Evaluation
 
-### Sparse Probing
 ```bash
-cd misc/sparse_probe
-python train_linear_probe_sp.py --sparsity 0.1 --model llama3.1-8b
-```
-
-### Activation Clamping
-```bash
-cd misc/clamp_exp  
-python run_sentence_clamped.py --clamp_layers 10,15,20
-```
-
-### Cross-Model Transfer
-```bash
-# Train on one model, evaluate on another
+# Train probe on smaller model
 python train.py --model llama3.1-8b --train_data_dir ./data/
-python eval.py --model gemma2-9b --probes_dir ./results/llama/
+
+# Test generalization to larger model  
+python eval.py \
+    --model llama3.1-70b \
+    --probes_dir ./results/llama3.1-8b/ \
+    --test_data_dir ./data/ \
+    --cross_model_eval
 ```
 
-## Evaluation Metrics
-
-- **AUROC**: Area under ROC curve with bootstrap confidence intervals
-- **Accuracy**: Classification accuracy on retained predictions
-- **Efficiency**: FLOPs comparison vs multi-sample baselines
-- **Transfer Performance**: Cross-model generalization analysis
-
-## Debugging
-
-### Common Issues
-| Issue | Solution |
-|-------|----------|
-| CUDA OOM | Reduce batch size, enable gradient checkpointing |
-| Slow loading | Use local model cache, SSD storage |
-| Poor AUROC | Check data quality, increase regularization |
-| Memory leak | Enable garbage collection, check tensor cleanup |
-
-### Profiling
-```bash
-# Memory profiling
-python -m memory_profiler train.py --model llama3.1-8b
-
-# Execution profiling  
-python -m cProfile -s time train.py --model llama3.1-8b
-```
-
-## Testing
+### Running Baselines
 
 ```bash
-# Unit tests
-python -m pytest tests/ -v
+# Graph-based uncertainty baseline
+cd baselines/graph-base-uncertainty
+python main.py --model llama3.1-8b --dataset factscore
 
-# Integration tests
-python -m pytest tests/integration/ --slow
-
-# Performance benchmarks
-python benchmarks/probe_speed.py
+# Long-form hallucination baselines
+cd baselines/long_hallucinations  
+# Note: See baselines/long_hallucinations/README.md for specific usage
+python hallucination.py --model QADebertaEntailment
+python hallucination.py --model SelfCheckBaseline
 ```
+
+### Data Generation
+
+```bash
+# Generate biographical text and compute FactScores
+cd scripts
+python run_sentence.py \
+    --hf-model-name meta-llama/Llama-3.1-8B-Instruct \
+    --model-name Llama3.1-8B \
+    --entities-file entities.txt \
+    --max-entities 50
+```
+
 
 ## Citation
 
@@ -218,32 +186,10 @@ If you use this codebase in your research, please cite:
 }
 ```
 
-## Authors
-
-- **Jiatong Han** - Independent Researcher (julius.han@outlook.com)
-- **Neil Band** - New York University
-- **Mohammed Razzak** - University of Oxford
-- **Jannik Kossen** - University of Oxford  
-- **Tim G.J. Rudner** - New York University
-- **Yarin Gal** - University of Oxford
-
 ## Contributing
 
-### Development Workflow
-1. Fork repository and create feature branch
-2. Install dev dependencies: `pip install -e .[dev]`
-3. Run tests: `pytest tests/`
-4. Submit pull request with detailed description
+We welcome contributions! Please see individual component READMEs for specific contribution guidelines:
 
-### Code Standards
-- Black formatting, flake8 linting
-- Type hints for all public functions
-- Google-style docstrings
-- >80% test coverage
-
-### Issue Reporting
-Include: Python version, GPU info, minimal reproduction case, full error traceback
-
-## License
-
-MIT License - see LICENSE file for details.
+- [`long_fact_probes/README.md`](long_fact_probes/README.md) - Core probe framework
+- [`tests/README.md`](tests/README.md) - Testing framework
+- [`scripts/README.md`](scripts/README.md) - Utility scripts

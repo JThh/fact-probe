@@ -1,9 +1,0 @@
-[submodule "baselines/fact_probes/llama3.1-405b_exp"]
-	path = baselines/fact_probes/llama3.1-405b_exp
-	url = git@github.com:JThh/Fact-Probe-405B.git
-[submodule "baselines/long_hallucinations"]
-	path = baselines/long_hallucinations
-	url = git@github.com:JThh/long_hallucinations-public.git
-[submodule "baselines/graph-base-uncertainty"]
-	path = baselines/graph-base-uncertainty
-	url = git@github.com:JThh/Graph-based-Uncertainty-public.git
